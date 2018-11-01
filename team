@@ -1,0 +1,261 @@
+#include "matrix.h"
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int data1[] = { 1,2,3,4,5,6,7,8 };
+    int data2[] = { 13,233,3,4,5,6 };
+    int data3[] = { 1,0,0,0,1,0,0,0,1 };
+    int data4[] = { 2,3,4,5,6,7,8,9};
+    matrix mat3(3, 3, data3),mat2(mat3),mat1(2,4,data1),mat4(3,3,data4);
+
+
+    cout<<"hey wassup..\n\nwhat are we doin' today?\n\nhow about choosing the part first?\n";
+    int part;
+    while (true)
+    {
+        cin>>part;
+
+
+        if(part==1)
+        {
+            while(true)
+            {
+                cout<<"\nok now what?\n1-plus\n2-minus\n3-multiply\n4-plus scalar\n5-minus scalar\n6-multiply scalar\n";
+                int operation;
+                cin>>operation;
+                if (operation==1)
+                {
+                    cout<<mat4<<endl<<mat2<<endl;
+                    cout<<mat4+mat2;
+                }
+                if (operation==2)
+                {
+                    cout<<mat4<<endl<<mat2<<endl;
+                    cout<<mat4-mat2;
+                }
+                if (operation==3)
+                {
+                    cout<<mat4<<endl<<mat2<<endl;
+                    cout<<mat4*mat2;
+                }
+                if (operation==4)
+                {
+                    int scalar;
+                    cout<<"enter the scalar value.."<<endl;
+                    cin>>scalar;
+                    cout<<mat1<<endl<<endl;
+                    cout<<mat1+scalar;
+                }
+                if (operation==5)
+                {
+                    int scalar;
+                    cout<<"enter the scalar value.."<<endl;
+                    cin>>scalar;
+                    cout<<mat1<<endl<<endl;
+                    cout<<mat1-scalar;
+                }
+                if (operation==6)
+                {
+                    int scalar;
+                    cout<<"enter the scalar value.."<<endl;
+                    cin>>scalar;
+                    cout<<mat1<<endl<<endl;
+                    cout<<mat1*scalar;
+                }
+                cout<<"continue??\ny=yes\nn=no\n";
+                string answer;
+                cin>>answer;
+                if(answer=="n")
+                {
+                    cout<<"ok fine..\ntry another part..";
+                    break;
+                }
+            }
+            cout<<"continue??\ny=yes\nn=no\n";
+            string answer;
+            cin>>answer;
+            if(answer=="n")
+            {
+                cout<<"ok fine..";
+                break;
+
+            }
+        }
+
+        //////////////////
+        else if(part==2)
+        {
+            while(true)
+            {
+                cout<<"\nok now what?\n1-equal\n2-plus equal\n3-minus equal\n4-plus equal scalar\n5-minus equal scalar\n6- ++ matrix\n7- matrix++\n8- --matrix\n9- matrix--\n";
+                int operation;
+                cin>>operation;
+                if (operation==1)
+                {
+                    cout<<mat4<<endl<<mat2<<endl;
+                    mat2=mat4;
+                    cout<<mat2;
+                }
+                if (operation==2)
+                {
+                    cout<<mat4<<endl<<mat2<<endl;
+                    mat4+=mat2;
+                    cout<<mat4;
+                }
+                if (operation==3)
+                {
+                    mat4-=mat2;
+                    cout<<mat4;
+                }
+                if (operation==4)
+                {
+                    int scalar;
+                    cout<<"enter the scalar value.."<<endl;
+                    cin>>scalar;
+                    cout<<mat1<<endl<<endl;
+                    mat1+=scalar;
+                    cout<<mat1;
+                }
+                if (operation==5)
+                {
+                    int scalar;
+                    cout<<"enter the scalar value.."<<endl;
+                    cin>>scalar;
+                    cout<<mat1<<endl<<endl;
+                    mat1-=scalar;
+                    cout<<mat1;
+                }
+                if (operation==6)
+                {
+                    cout<<mat1<<endl;
+                    mat2=++mat1;
+                    cout<<mat2;
+                }
+                if (operation==7)
+                {
+                    cout<<mat1<<endl;
+                    mat2=mat1++;
+                    cout<<mat2;
+                }
+                if (operation==8)
+                {
+                    cout<<mat1<<endl;
+                    mat2=--mat1;
+                    cout<<mat2;
+                }
+                if (operation==9)
+                {
+                    cout<<mat1<<endl;
+                    mat2=mat1--;
+                    cout<<mat2;
+                }
+                cout<<"continue??\ny=yes\nn=no\n";
+                string answer;
+                cin>>answer;
+                if(answer=="n")
+                {
+                    cout<<"ok fine..\ntry another part..";
+                    break;
+                }
+            }
+
+            cout<<"continue??\ny=yes\nn=no\n";
+            string answer;
+            cin>>answer;
+            if(answer=="n")
+            {
+                cout<<"ok fine..";
+                break;
+            }
+
+
+        }
+
+        /////////////
+        else if(part==3)
+        {
+            while(true)
+            {
+                cout<<"\nok now what?\n1-equal equal\n2-not equal\n3-is identity\n4-is symmetric\n5-is square\n6-transpose\n";
+                int operation;
+                cin>>operation;
+                if (operation==1)
+                {
+                    cout<<mat2<<endl<<mat3<<endl<<endl;
+                    if(mat2==mat3)
+                    {
+                        cout<<"mat2==mat3"<<endl;
+                    }
+                    else if (mat2!=mat3)
+                    {
+                        cout<<"mat2!=mat3"<<endl;
+                    }
+                }
+                if (operation==2)
+                {
+                    cout<<mat2<<endl<<mat3<<endl<<endl;
+                    if(mat2!=mat3)
+                    {
+                        cout<<"mat2!=mat3"<<endl;
+                    }
+                    else if(mat2==mat3)
+                    {
+                        cout<<"mat2==mat3"<<endl;
+                    }
+                }
+                if (operation==3)
+                {
+                    if(mat3.isIdentity())
+                    {
+                        cout<<"mat3 is identity"<<endl;
+                    }
+                }
+                if (operation==4)
+                {
+                    if(mat3.isSymetric())
+                    {
+                        cout<<"mat3 is Symmetric"<<endl;
+                    }
+                }
+                if (operation==5)
+                {
+                    if(mat3.isSquare())
+                    {
+                        cout<<"mat3 is square"<<endl;
+                    }
+                }
+                if (operation==6)
+                {
+                    cout<<mat1<<endl<<endl;
+                    cout<<mat1.transpose();;
+                }
+                cout<<"continue??\ny=yes\nn=no\n";
+                string answer;
+                cin>>answer;
+                if(answer=="n")
+                {
+                    cout<<"ok fine..try another part..";
+                    break;
+                }
+            }
+            cout<<"continue??\ny=yes\nn=no\n";
+            string answer;
+            cin>>answer;
+            if(answer=="n")
+            {
+                cout<<"ok fine..";
+                break;
+            }
+            /////////////
+        }
+        else if (part!=1 && part !=2 && part !=3)
+        {
+            cout<<"there's no such part dude..\nCOME ON!!";
+        }
+
+    }
+
+    return 0;
+}
